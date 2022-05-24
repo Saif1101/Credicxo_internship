@@ -1,11 +1,11 @@
-import 'package:credixco_intern/application/domain/repositories/music_remote_repository.dart';
-import 'package:credixco_intern/application/domain/usecases/usecase.dart';
 import 'package:credixco_intern/data/models/app_error.dart';
 import 'package:credixco_intern/data/models/track_model.dart';
+import 'package:credixco_intern/domain/repositories/music_repository.dart';
+import 'package:credixco_intern/domain/usecases/usecase.dart';
 import 'package:dartz/dartz.dart';
 
-class GetTrackDetails extends UseCase<TrackModel, String>{
-  final MusicRemoteRepository repository;
+class GetTrackDetails extends UseCase<TrackModel, String> {
+  final MusicRepository repository;
 
   GetTrackDetails(this.repository);
 

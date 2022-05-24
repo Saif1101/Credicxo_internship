@@ -1,6 +1,7 @@
 
-import 'package:credixco_intern/application/domain/usecases/music_tracks/get_tracks_from_chart.dart';
+
 import 'package:credixco_intern/data/models/track_model.dart';
+import 'package:credixco_intern/domain/usecases/music_tracks/get_tracks_from_chart.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

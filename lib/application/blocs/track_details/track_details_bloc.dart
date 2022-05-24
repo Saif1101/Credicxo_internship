@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:credixco_intern/application/domain/usecases/music_tracks/get_track_details.dart';
-import 'package:credixco_intern/application/domain/usecases/music_tracks/get_track_lyrics.dart';
+
 import 'package:credixco_intern/data/models/track_lyrics_model.dart';
 import 'package:credixco_intern/data/models/track_model.dart';
-import 'package:dartz/dartz.dart';
+import 'package:credixco_intern/domain/usecases/music_tracks/get_track_details.dart';
+import 'package:credixco_intern/domain/usecases/music_tracks/get_track_lyrics.dart';
+
 import 'package:equatable/equatable.dart';
 import 'package:credixco_intern/utilities/extensions.dart';
 

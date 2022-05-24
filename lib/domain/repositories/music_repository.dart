@@ -6,51 +6,55 @@ import 'package:credixco_intern/data/models/track_lyrics_model.dart';
 import 'package:credixco_intern/data/models/track_model.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class MusicRemoteRepository{
-  Future <Either<AppError,List<TrackModel>>> getTracksFromChart();
-  Future <Either<AppError,TrackModel>> getTrackDetails(String trackID);
-  Future <Either<AppError,TrackLyricsModel>> getTrackLyrics(String trackID);
+abstract class MusicRepository {
+  Future<Either<AppError, List<TrackModel>>> getTracksFromChart();
+  Future<Either<AppError, TrackModel>> getTrackDetails(String trackID);
+  Future<Either<AppError, TrackLyricsModel>> getTrackLyrics(String trackID);
+
 }
 
-class MusicRemoteRepositoryImpl extends MusicRemoteRepository{
-  final MusicRemoteSource dataSource;
+class MusicRemoteRepositoryImpl extends MusicRepository {
+  final MusicRemoteSource remoteSource;
 
-  MusicRemoteRepositoryImpl(this.dataSource);
+
+  MusicRemoteRepositoryImpl(this.remoteSource);
 
   @override
   Future<Either<AppError, TrackModel>> getTrackDetails(String trackID) async {
-     try{
-      final track = await dataSource.getTrackDetails(trackID);
+    try {
+      final track = await remoteSource.getTrackDetails(trackID);
       return Right(track);
-    } on SocketException{
+    } on SocketException {
       return Left(AppError('Error connecting to the internet.'));
-    } on Exception catch(e){
+    } on Exception catch (e) {
       return Left(AppError(e.toString()));
     }
   }
 
   @override
-  Future<Either<AppError, TrackLyricsModel>> getTrackLyrics(String trackID) async {
-    try{
-      final trackLyrics = await dataSource.getTrackLyrics(trackID);
+  Future<Either<AppError, TrackLyricsModel>> getTrackLyrics(
+      String trackID) async {
+    try {
+      final trackLyrics = await remoteSource.getTrackLyrics(trackID);
       return Right(trackLyrics);
-    } on SocketException{
+    } on SocketException {
       return Left(AppError('Error connecting to the internet.'));
-    } on Exception catch(e){
+    } on Exception catch (e) {
       return Left(AppError(e.toString()));
     }
   }
 
   @override
   Future<Either<AppError, List<TrackModel>>> getTracksFromChart() async {
-    try{
-      final tracksFromChart = await dataSource.getTracksFromChart();
+    try {
+      final tracksFromChart = await remoteSource.getTracksFromChart();
       print("The tracks received from the chart are: $tracksFromChart");
       return Right(tracksFromChart);
-    } on SocketException{
+    } on SocketException {
       return Left(AppError('Error connecting to the internet.'));
-    } on Exception catch(e){
+    } on Exception catch (e) {
       return Left(AppError(e.toString()));
     }
   }
+
 }
