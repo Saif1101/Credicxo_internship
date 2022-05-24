@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
-    print('This is route: ${settings.name}');
-
     switch (settings.name) {
       case '/':
         return HomePage.route();

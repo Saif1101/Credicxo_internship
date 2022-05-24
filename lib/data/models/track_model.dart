@@ -77,9 +77,8 @@ class TrackModel extends Equatable {
   static List<TrackModel> tracksFromChart(Map<String, dynamic> json){
     List<TrackModel> tracks =[]; 
     for (int i = 0; i < json['message']['body']['track_list'].length; i++) {
-      print(json['message']['body']['track_list'][i]['track']);
       TrackModel track = TrackModel.fromJson(json['message']['body']['track_list'][i]['track']);
-      print(track);
+     
       tracks.add(track);
     }
     return tracks;

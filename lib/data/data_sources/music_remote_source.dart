@@ -17,7 +17,7 @@ class MusicRemoteSourceImpl extends MusicRemoteSource{
   Future<List<TrackModel>> getTracksFromChart() async {
     final response = await _client.get('chart.tracks.get');
     final tracksFromChart = TrackModel.tracksFromChart(response);
-    print('Tracks fetched: ${tracksFromChart.length}');
+    
     return tracksFromChart;
   }
 

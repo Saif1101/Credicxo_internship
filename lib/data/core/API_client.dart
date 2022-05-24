@@ -26,11 +26,10 @@ class ApiClient {
       // },
     );
     if(response.statusCode==200){
-      print("Response Body:");
-      print(response.body);
+      
       return json.decode(response.body);
   }else{
-      print(Exception(response.reasonPhrase));
+      
       throw Exception(response.reasonPhrase);
     }
   }
@@ -47,7 +46,7 @@ Uri getPath(String path, Map<dynamic,dynamic>? params){
       });
     }
     var uri = Uri.parse("${ApiConstants.BASE_URL}$path?$paramsString${paramsString==''?'':'&'}apikey=${ApiConstants.API_KEY}");
-    print('query Uri : $uri');
+   
     return uri; 
   }
 

@@ -42,7 +42,7 @@ class _TrackDetailsPageState extends State<TrackDetailsPage> {
           value: trackDetailsBloc,
           child: BlocBuilder<TrackDetailsBloc, TrackDetailsState>(
             builder: (context, state) {
-              print(state);
+             
               if(state is TrackDetailsLoaded){
                 return SingleChildScrollView(
                   child: Column(

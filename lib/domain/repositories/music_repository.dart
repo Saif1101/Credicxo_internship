@@ -48,7 +48,7 @@ class MusicRemoteRepositoryImpl extends MusicRepository {
   Future<Either<AppError, List<TrackModel>>> getTracksFromChart() async {
     try {
       final tracksFromChart = await remoteSource.getTracksFromChart();
-      print("The tracks received from the chart are: $tracksFromChart");
+    
       return Right(tracksFromChart);
     } on SocketException {
       return Left(AppError('Error connecting to the internet.'));
