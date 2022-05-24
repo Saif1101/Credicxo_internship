@@ -1,4 +1,4 @@
-# credixco_intern
+# credicxo_internship
 
 A new Flutter project.
 
