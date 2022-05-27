@@ -32,7 +32,7 @@ class TrackCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            track.trackName! + track.trackName!,
+                            track.trackName?? "Unnamed",
                             style: TextStyle(fontSize: 18),
                             softWrap: true,
                             maxLines: 3,
